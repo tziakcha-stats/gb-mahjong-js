@@ -1,0 +1,1434 @@
+{
+  "tingCases": [
+    {
+      "input": "[CCCC][FFFF][PPPP][NNNN]E ",
+      "expectedNames": ["TILE_E"]
+    },
+    {
+      "input": "19m19s19pESWNCFP ",
+      "expectedNames": [
+        "TILE_1m",
+        "TILE_1p",
+        "TILE_1s",
+        "TILE_9m",
+        "TILE_9p",
+        "TILE_9s",
+        "TILE_E",
+        "TILE_S",
+        "TILE_W",
+        "TILE_N",
+        "TILE_C",
+        "TILE_F",
+        "TILE_P"
+      ]
+    },
+    {
+      "input": "19m19s19pESWNNFP ",
+      "expectedNames": ["TILE_C"]
+    },
+    {
+      "input": "22559m11sEESSPP ",
+      "expectedNames": ["TILE_9m"]
+    },
+    {
+      "input": "47m28s369pESWCFP ",
+      "expectedNames": ["TILE_1m", "TILE_5s", "TILE_N"]
+    },
+    {
+      "input": "28m47s369pESWCFP ",
+      "expectedNames": ["TILE_1s", "TILE_5m", "TILE_N"]
+    },
+    {
+      "input": "28m47s369pESWCCP ",
+      "expectedNames": []
+    },
+    {
+      "input": "1112345678999s ",
+      "expectedNames": [
+        "TILE_1s",
+        "TILE_2s",
+        "TILE_3s",
+        "TILE_4s",
+        "TILE_5s",
+        "TILE_6s",
+        "TILE_7s",
+        "TILE_8s",
+        "TILE_9s"
+      ]
+    },
+    {
+      "input": "[111s,1]2345678999s ",
+      "expectedNames": [
+        "TILE_1s",
+        "TILE_2s",
+        "TILE_4s",
+        "TILE_5s",
+        "TILE_7s",
+        "TILE_8s"
+      ]
+    },
+    {
+      "input": "1112345689999s ",
+      "expectedNames": ["TILE_7s"]
+    },
+    {
+      "input": "1112346778999s ",
+      "expectedNames": ["TILE_5s", "TILE_7s", "TILE_8s"]
+    },
+    {
+      "input": "3344455566667m ",
+      "expectedNames": [
+        "TILE_2m",
+        "TILE_3m",
+        "TILE_4m",
+        "TILE_5m",
+        "TILE_7m",
+        "TILE_8m"
+      ]
+    },
+    {
+      "input": "234m45s88899pEEE ",
+      "expectedNames": ["TILE_3s", "TILE_6s"]
+    },
+    {
+      "input": "234m35s88899pEEE ",
+      "expectedNames": ["TILE_4s"]
+    },
+    {
+      "input": "234m345s8889pEEE ",
+      "expectedNames": ["TILE_7p", "TILE_9p"]
+    },
+    {
+      "input": "234m345s6669pEEE ",
+      "expectedNames": ["TILE_9p"]
+    },
+    {
+      "input": "234m345s3399pEEE ",
+      "expectedNames": ["TILE_3p", "TILE_9p"]
+    },
+    {
+      "input": "34444556789pPP ",
+      "expectedNames": ["TILE_7p", "TILE_P"]
+    },
+    {
+      "input": "23344445m888pWW ",
+      "expectedNames": ["TILE_1m", "TILE_W"]
+    },
+    {
+      "input": "234m345s333pEEEE ",
+      "expectedNames": []
+    }
+  ],
+  "fanCases": [
+    {
+      "input": "[EEE,2][SSSS,1]WWWNN55pN|EE1000",
+      "expectedNames": [
+        "FAN_DASIXI",
+        "FAN_HUNYISE",
+        "FAN_SHUANGANKE",
+        "FAN_MINGGANG",
+        "FAN_ZIMO"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[EEE,2][SSSS,1]WWWNN555p|SN1000",
+      "expectedNames": [
+        "FAN_XIAOSIXI",
+        "FAN_HUNYISE",
+        "FAN_PENGPENGHU",
+        "FAN_QUANFENGKE",
+        "FAN_SHUANGANKE",
+        "FAN_MINGGANG",
+        "FAN_ZIMO"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[EEE,2][SSS,1]WWW78m55p9m|NN1000",
+      "expectedNames": ["FAN_SANFENGKE", "FAN_QUEYIMEN", "FAN_ZIMO"],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[EEE,2][SSS,1]WWW99m55p9m|NN1000",
+      "expectedNames": [
+        "FAN_SANFENGKE",
+        "FAN_PENGPENGHU",
+        "FAN_SHUANGANKE",
+        "FAN_YAOJIUKE",
+        "FAN_QUEYIMEN",
+        "FAN_ZIMO"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[PPP,2][FFF,3]CC66999sC|EE1000",
+      "expectedNames": [
+        "FAN_DASANYUAN",
+        "FAN_HUNYISE",
+        "FAN_PENGPENGHU",
+        "FAN_SHUANGANKE",
+        "FAN_YAOJIUKE",
+        "FAN_ZIMO"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[PPP,2][FFF,3]345p666sCC|EE1000",
+      "expectedNames": [
+        "FAN_XIAOSANYUAN",
+        "FAN_QUEYIMEN",
+        "FAN_DANDIAOJIANG",
+        "FAN_ZIMO"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[PPP,2][FFF,3]3335p999s4p|EE1000",
+      "expectedNames": [
+        "FAN_SHUANGJIANKE",
+        "FAN_YAOJIUKE",
+        "FAN_QUEYIMEN",
+        "FAN_ZIMO"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[EEE,2][SSS,1][FFF,3]WWNNW|WW1000",
+      "expectedNames": [
+        "FAN_XIAOSIXI",
+        "FAN_ZIYISE",
+        "FAN_QUANFENGKE",
+        "FAN_MENFENGKE",
+        "FAN_JIANKE",
+        "FAN_ZIMO"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "EESSWWNNPPFFCC|EE1000",
+      "expectedNames": ["FAN_ZIYISE", "FAN_QIDUI", "FAN_ZIMO"],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[111m,2]111999p11991s|EE1000",
+      "expectedNames": [
+        "FAN_QINGYAOJIU",
+        "FAN_SANANKE",
+        "FAN_SANTONGKE",
+        "FAN_ZIMO"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[1111m,2][111p,3]999p11999s|EE1000",
+      "expectedNames": [
+        "FAN_QINGYAOJIU",
+        "FAN_SHUANGANKE",
+        "FAN_MINGGANG",
+        "FAN_ZIMO"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "1199m119999p1991s|EE1000",
+      "expectedNames": [
+        "FAN_QINGYAOJIU",
+        "FAN_QIDUI",
+        "FAN_SIGUIYI",
+        "FAN_ZIMO"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[NNN,3][999s,1][CCC,2]999m11p|ES1000",
+      "expectedNames": [
+        "FAN_HUNYAOJIU",
+        "FAN_WUMENQI",
+        "FAN_SHUANGTONGKE",
+        "FAN_JIANKE",
+        "FAN_DANDIAOJIANG",
+        "FAN_ZIMO"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "99m11pSWWNNPPFFS|EE1000",
+      "expectedNames": [
+        "FAN_HUNYAOJIU",
+        "FAN_QIDUI",
+        "FAN_QUEYIMEN",
+        "FAN_ZIMO"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[123p,1][CCC,1]999m79998p|EE1000",
+      "expectedNames": [
+        "FAN_QUANDAIYAO",
+        "FAN_JIANKE",
+        "FAN_QUEYIMEN",
+        "FAN_LAOSHAOFU",
+        "FAN_YAOJIUKE",
+        "FAN_ZIMO"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "44558m22p225566s8m|EE1000",
+      "expectedNames": ["FAN_QIDUI", "FAN_DUANYAO", "FAN_ZIMO"],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[345m,1]22456p222567s",
+      "expectedNames": ["FAN_SANSESANBUGAO", "FAN_DUANYAO"],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[EEE,2][SSS,1][CCCC]88m456s|ES1000",
+      "expectedNames": [
+        "FAN_QUANFENGKE",
+        "FAN_MENFENGKE",
+        "FAN_JIANKE",
+        "FAN_ANGANG",
+        "FAN_QUEYIMEN",
+        "FAN_ZIMO"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[WWW,2][NNNN,3][111p,2]99s55m9s|ES1000",
+      "expectedNames": [
+        "FAN_PENGPENGHU",
+        "FAN_YAOJIUKE",
+        "FAN_YAOJIUKE",
+        "FAN_YAOJIUKE",
+        "FAN_YAOJIUKE",
+        "FAN_MINGGANG",
+        "FAN_ZIMO"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[123s,1][333s,2]45678996s|EE1000",
+      "expectedNames": [
+        "FAN_QINGYISE",
+        "FAN_SIGUIYI",
+        "FAN_LIANLIU",
+        "FAN_ZIMO"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "11224455668899p|EE1000",
+      "expectedNames": ["FAN_QINGYISE", "FAN_QIDUI", "FAN_ZIMO"],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[CCC,2][789m,1]12345mNN6m|EE1000",
+      "expectedNames": [
+        "FAN_HUNYISE",
+        "FAN_QINGLONG",
+        "FAN_JIANKE",
+        "FAN_ZIMO"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "1122559mNNCCCC9m|EE1000",
+      "expectedNames": ["FAN_HUNYISE", "FAN_QIDUI", "FAN_SIGUIYI", "FAN_ZIMO"],
+      "altExpectedNames": null
+    },
+    {
+      "input": "12345789p55678m6p|EE1000",
+      "expectedNames": [
+        "FAN_QINGLONG",
+        "FAN_BUQIUREN",
+        "FAN_PINGHU",
+        "FAN_QUEYIMEN"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "556699m22334455p",
+      "expectedNames": ["FAN_QIDUI", "FAN_QUEYIMEN", "FAN_WUZI"],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[678m,1][444s,2][FFF,1]234pWW",
+      "expectedNames": ["FAN_WUMENQI", "FAN_JIANKE", "FAN_DANDIAOJIANG"],
+      "altExpectedNames": null
+    },
+    {
+      "input": "7788m44s3344pWWFF|EE1000",
+      "expectedNames": ["FAN_QIDUI", "FAN_WUMENQI", "FAN_ZIMO"],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[FFF,2]147m258p39sWW6s",
+      "expectedNames": ["FAN_ZUHELONG", "FAN_WUMENQI", "FAN_JIANKE"],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[789m,1][999s,2]7899p789s9p|EE1000",
+      "expectedNames": [
+        "FAN_QUANDA",
+        "FAN_SANSESANTONGSHUN",
+        "FAN_QUANDAIYAO",
+        "FAN_SIGUIYI",
+        "FAN_YAOJIUKE",
+        "FAN_ZIMO"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[444m,2][666m,3]444p44664s",
+      "expectedNames": ["FAN_QUANZHONG", "FAN_QUANSHUANGKE", "FAN_SANTONGKE"],
+      "altExpectedNames": null
+    },
+    {
+      "input": "11223333p33s1122m|EE1000",
+      "expectedNames": ["FAN_QUANXIAO", "FAN_QIDUI", "FAN_SIGUIYI", "FAN_ZIMO"],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[666m,2][777m,2][999m,2]78886m|EE0100",
+      "expectedNames": [
+        "FAN_QINGYISE",
+        "FAN_DAYUWU",
+        "FAN_HUJUEZHANG",
+        "FAN_SIGUIYI",
+        "FAN_SIGUIYI",
+        "FAN_YAOJIUKE"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[123p,3]23334p222444s|EE1000",
+      "expectedNames": [
+        "FAN_XIAOYUWU",
+        "FAN_TUIBUDAO",
+        "FAN_SHUANGANKE",
+        "FAN_SIGUIYI",
+        "FAN_ZIMO"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[345m,1]567m45556p345s",
+      "expectedNames": [
+        "FAN_QUANDAIWU",
+        "FAN_SANSESANBUGAO",
+        "FAN_PINGHU",
+        "FAN_XIXIANGFENG"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[444m,2][666m,3]22244s88p4s",
+      "expectedNames": ["FAN_QUANSHUANGKE", "FAN_SHUANGTONGKE"],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[111s,3][222s,3][444s,2]333s22p",
+      "expectedNames": [
+        "FAN_YISESIJIEGAO",
+        "FAN_XIAOYUWU",
+        "FAN_QUEYIMEN",
+        "FAN_YAOJIUKE",
+        "FAN_DANDIAOJIANG"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[666p,2]77888p678sWW7p",
+      "expectedNames": ["FAN_YISESANJIEGAO", "FAN_QUEYIMEN"],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[444s,2]333m55pWWCCC5p|EE1000",
+      "expectedNames": [
+        "FAN_SANANKE",
+        "FAN_SANSESANJIEGAO",
+        "FAN_WUMENQI",
+        "FAN_PENGPENGHU",
+        "FAN_JIANKE",
+        "FAN_ZIMO"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[444s,2]333666m55pWW5p",
+      "expectedNames": [
+        "FAN_SANSESANJIEGAO",
+        "FAN_PENGPENGHU",
+        "FAN_SHUANGANKE"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[1111m][1111p,2]11134445s|EE1000",
+      "expectedNames": [
+        "FAN_SANTONGKE",
+        "FAN_MINGANGANG",
+        "FAN_SHUANGANKE",
+        "FAN_YAOJIUKE",
+        "FAN_YAOJIUKE",
+        "FAN_YAOJIUKE",
+        "FAN_WUZI",
+        "FAN_ZIMO"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[234m,1][555m,1]567m55566p",
+      "expectedNames": [
+        "FAN_SHUANGTONGKE",
+        "FAN_SIGUIYI",
+        "FAN_DUANYAO",
+        "FAN_QUEYIMEN",
+        "FAN_LIANLIU"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[222m,1][555m,2]8m222555p8m",
+      "expectedNames": [
+        "FAN_PENGPENGHU",
+        "FAN_DUANYAO",
+        "FAN_SHUANGTONGKE",
+        "FAN_SHUANGTONGKE",
+        "FAN_QUEYIMEN",
+        "FAN_DANDIAOJIANG",
+        "FAN_SHUANGANKE"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[456s,1][456s,1][456s,3]45s55m6s|EE1100",
+      "expectedNames": [
+        "FAN_YISESITONGSHUN",
+        "FAN_QUANZHONG",
+        "FAN_QUANDAIWU",
+        "FAN_HUJUEZHANG",
+        "FAN_PINGHU",
+        "FAN_QUEYIMEN",
+        "FAN_ZIMO"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[234s,1]22333444sFF2s|EE1000",
+      "expectedNames": ["FAN_LVYISE", "FAN_YISESITONGSHUN", "FAN_ZIMO"],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[456s,1][456s,1]456s77mCCC",
+      "expectedNames": ["FAN_YISESANTONGSHUN", "FAN_JIANKE", "FAN_QUEYIMEN"],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[123m,1][345m,1]67789mCC5m|EE1000",
+      "expectedNames": ["FAN_YISESIBUGAO", "FAN_HUNYISE", "FAN_ZIMO"],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[123p,1][234p,1]344556p99s|EE1000",
+      "expectedNames": [
+        "FAN_YISESIBUGAO",
+        "FAN_PINGHU",
+        "FAN_QUEYIMEN",
+        "FAN_DANDIAOJIANG",
+        "FAN_ZIMO"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[123m,1][345m,1]567m34sCC5s|EE1000",
+      "expectedNames": [
+        "FAN_YISESANBUGAO",
+        "FAN_XIXIANGFENG",
+        "FAN_QUEYIMEN",
+        "FAN_ZIMO"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[234p,1]12334567pEE5p|EE1000",
+      "expectedNames": [
+        "FAN_YISESANBUGAO",
+        "FAN_HUNYISE",
+        "FAN_LIANLIU",
+        "FAN_ZIMO"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "12345566789s22p4s|EE1000",
+      "expectedNames": [
+        "FAN_QINGLONG",
+        "FAN_BUQIUREN",
+        "FAN_PINGHU",
+        "FAN_YIBANGAO",
+        "FAN_QUEYIMEN"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "123456m456p11789s",
+      "expectedNames": [
+        "FAN_HUALONG",
+        "FAN_MENQIANQING",
+        "FAN_PINGHU",
+        "FAN_XIXIANGFENG"
+      ],
+      "altExpectedNames": [
+        "FAN_HUALONG",
+        "FAN_MENQIANQING",
+        "FAN_PINGHU",
+        "FAN_LIANLIU"
+      ]
+    },
+    {
+      "input": "[234m,1]11234p233442s",
+      "expectedNames": [
+        "FAN_XIAOYUWU",
+        "FAN_SANSESANTONGSHUN",
+        "FAN_PINGHU",
+        "FAN_YIBANGAO"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[345m,1]55567m456p678s|EE1000",
+      "expectedNames": [
+        "FAN_SANSESANBUGAO",
+        "FAN_PINGHU",
+        "FAN_DUANYAO",
+        "FAN_SIGUIYI",
+        "FAN_ZIMO"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "12355789m123456p",
+      "expectedNames": [
+        "FAN_MENQIANQING",
+        "FAN_PINGHU",
+        "FAN_LAOSHAOFU",
+        "FAN_LIANLIU",
+        "FAN_XIXIANGFENG",
+        "FAN_QUEYIMEN"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[123m,1][123p,1]123m12p44s3p",
+      "expectedNames": [
+        "FAN_XIAOYUWU",
+        "FAN_PINGHU",
+        "FAN_YIBANGAO",
+        "FAN_YIBANGAO",
+        "FAN_XIXIANGFENG",
+        "FAN_BIANZHANG"
+      ],
+      "altExpectedNames": [
+        "FAN_XIAOYUWU",
+        "FAN_PINGHU",
+        "FAN_YIBANGAO",
+        "FAN_XIXIANGFENG",
+        "FAN_XIXIANGFENG",
+        "FAN_BIANZHANG"
+      ]
+    },
+    {
+      "input": "234567p34567888s",
+      "expectedNames": [
+        "FAN_MENQIANQING",
+        "FAN_PINGHU",
+        "FAN_DUANYAO",
+        "FAN_LIANLIU",
+        "FAN_LIANLIU",
+        "FAN_QUEYIMEN"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "19m19p119sESWNPFC|EE1000",
+      "expectedNames": ["FAN_SHISANYAO", "FAN_ZIMO"],
+      "altExpectedNames": null
+    },
+    {
+      "input": "147m28p69sESWNPF3s|EE1000",
+      "expectedNames": ["FAN_QUANBUKAO", "FAN_ZIMO"],
+      "altExpectedNames": null
+    },
+    {
+      "input": "14m369p25sESWNPFC|EE1000",
+      "expectedNames": ["FAN_QIXINGBUKAO", "FAN_ZIMO"],
+      "altExpectedNames": null
+    },
+    {
+      "input": "369m147p25sSWNPF8s",
+      "expectedNames": ["FAN_QUANBUKAO", "FAN_ZUHELONG"],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[234p,1]258m369p14788s",
+      "expectedNames": ["FAN_ZUHELONG", "FAN_PINGHU", "FAN_DANDIAOJIANG"],
+      "altExpectedNames": null
+    },
+    {
+      "input": "1111m99p99sWWNNPP",
+      "expectedNames": [
+        "FAN_HUNYAOJIU",
+        "FAN_QIDUI",
+        "FAN_WUMENQI",
+        "FAN_SIGUIYI"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[CCCC][FFFF]333p67pPP5p|EE1000",
+      "expectedNames": [
+        "FAN_XIAOSANYUAN",
+        "FAN_SANANKE",
+        "FAN_HUNYISE",
+        "FAN_SHUANGANGANG",
+        "FAN_BUQIUREN"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[234m,1][345p,1][234s,1][CCCC,2]11m",
+      "expectedNames": [
+        "FAN_QUANQIUREN",
+        "FAN_JIANKE",
+        "FAN_MINGGANG",
+        "FAN_XIXIANGFENG"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[234s,2][666s,2]33888sFFF|EE1000",
+      "expectedNames": [
+        "FAN_LVYISE",
+        "FAN_SHUANGANKE",
+        "FAN_JIANKE",
+        "FAN_ZIMO"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "22333344668888s",
+      "expectedNames": [
+        "FAN_LVYISE",
+        "FAN_QINGYISE",
+        "FAN_QIDUI",
+        "FAN_DUANYAO",
+        "FAN_SIGUIYI",
+        "FAN_SIGUIYI"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "11123456789999m|EE1000",
+      "expectedNames": [
+        "FAN_JIULIANBAODENG",
+        "FAN_QINGLONG",
+        "FAN_SIGUIYI",
+        "FAN_ZIMO"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "11123456789992p",
+      "expectedNames": [
+        "FAN_JIULIANBAODENG",
+        "FAN_SHUANGANKE",
+        "FAN_YAOJIUKE",
+        "FAN_LIANLIU"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "22334556677884s",
+      "expectedNames": ["FAN_LIANQIDUI", "FAN_DUANYAO"],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[123p,1]12355778998p|EE1000",
+      "expectedNames": ["FAN_YISESHUANGLONGHUI", "FAN_KANZHANG", "FAN_ZIMO"],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[123m,1][789m,1][123p,1]89p55s7p|EE1000",
+      "expectedNames": ["FAN_SANSESHUANGLONGHUI", "FAN_BIANZHANG", "FAN_ZIMO"],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[234p,1]123345p88999s",
+      "expectedNames": [
+        "FAN_YISESANBUGAO",
+        "FAN_TUIBUDAO",
+        "FAN_YAOJIUKE",
+        "FAN_WUZI"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "223344558pPPPP8p|EE1000",
+      "expectedNames": [
+        "FAN_QIDUI",
+        "FAN_TUIBUDAO",
+        "FAN_HUNYISE",
+        "FAN_SIGUIYI",
+        "FAN_ZIMO"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[111m,1][123m,1]33455553m|EE1000",
+      "expectedNames": [
+        "FAN_QINGYISE",
+        "FAN_SIGUIYI",
+        "FAN_SIGUIYI",
+        "FAN_SIGUIYI",
+        "FAN_YAOJIUKE",
+        "FAN_ZIMO"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "22448p55m88sPPPP8p|EE1000",
+      "expectedNames": ["FAN_QIDUI", "FAN_SIGUIYI", "FAN_ZIMO"],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[123m,1][345m,1]678p56sWW7s",
+      "expectedNames": ["FAN_WUFANHU"],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[CCCC][FFFF][PPPP][EEEE]NN|EE1011|8",
+      "expectedNames": [
+        "FAN_DASANYUAN",
+        "FAN_SIGANG",
+        "FAN_ZIYISE",
+        "FAN_SIANKE",
+        "FAN_MIAOSHOUHUICHUN",
+        "FAN_GANGSHANGKAIHUA",
+        "FAN_QUANFENGKE",
+        "FAN_MENFENGKE",
+        "FAN_HUAPAI",
+        "FAN_HUAPAI",
+        "FAN_HUAPAI",
+        "FAN_HUAPAI",
+        "FAN_HUAPAI",
+        "FAN_HUAPAI",
+        "FAN_HUAPAI",
+        "FAN_HUAPAI"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "23422333444sFF2s|EE1000",
+      "expectedNames": ["FAN_LVYISE", "FAN_YISESITONGSHUN", "FAN_BUQIUREN"],
+      "altExpectedNames": null
+    },
+    {
+      "input": "23422333444562s|EE1000",
+      "expectedNames": [
+        "FAN_QINGYISE",
+        "FAN_BUQIUREN",
+        "FAN_SIGUIYI",
+        "FAN_SIGUIYI",
+        "FAN_SIGUIYI",
+        "FAN_SHUANGANKE",
+        "FAN_DUANYAO"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "234567p234567sEE",
+      "expectedNames": [
+        "FAN_MENQIANQING",
+        "FAN_XIXIANGFENG",
+        "FAN_XIXIANGFENG",
+        "FAN_LIANLIU",
+        "FAN_QUEYIMEN",
+        "FAN_DANDIAOJIANG"
+      ],
+      "altExpectedNames": [
+        "FAN_MENQIANQING",
+        "FAN_XIXIANGFENG",
+        "FAN_LIANLIU",
+        "FAN_LIANLIU",
+        "FAN_QUEYIMEN",
+        "FAN_DANDIAOJIANG"
+      ]
+    },
+    {
+      "input": "258m23469p14788s3p",
+      "expectedNames": ["FAN_ZUHELONG", "FAN_MENQIANQING", "FAN_PINGHU"],
+      "altExpectedNames": null
+    },
+    {
+      "input": "258m13369p14788s2p",
+      "expectedNames": [
+        "FAN_ZUHELONG",
+        "FAN_MENQIANQING",
+        "FAN_PINGHU",
+        "FAN_KANZHANG"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[1111m][111p,3]999p11999s|EE1001",
+      "expectedNames": [
+        "FAN_QINGYAOJIU",
+        "FAN_SANANKE",
+        "FAN_GANGSHANGKAIHUA",
+        "FAN_ANGANG"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "111999p11999s798p|EE0001",
+      "expectedNames": [
+        "FAN_SANANKE",
+        "FAN_QIANGGANGHU",
+        "FAN_QUANDAIYAO",
+        "FAN_MENQIANQING",
+        "FAN_SIGUIYI",
+        "FAN_SHUANGTONGKE",
+        "FAN_YAOJIUKE",
+        "FAN_YAOJIUKE",
+        "FAN_YAOJIUKE",
+        "FAN_QUEYIMEN",
+        "FAN_WUZI",
+        "FAN_KANZHANG"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[111p,3]999p11999s798p|EE0001",
+      "expectedNames": [
+        "FAN_QIANGGANGHU",
+        "FAN_QUANDAIYAO",
+        "FAN_SIGUIYI",
+        "FAN_SHUANGTONGKE",
+        "FAN_SHUANGANKE",
+        "FAN_YAOJIUKE",
+        "FAN_YAOJIUKE",
+        "FAN_YAOJIUKE",
+        "FAN_QUEYIMEN",
+        "FAN_WUZI",
+        "FAN_KANZHANG"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[234m,1][555m,1]567m55576p|EE0101|3",
+      "expectedNames": [
+        "FAN_QIANGGANGHU",
+        "FAN_SIGUIYI",
+        "FAN_DUANYAO",
+        "FAN_XIXIANGFENG",
+        "FAN_LIANLIU",
+        "FAN_QUEYIMEN",
+        "FAN_HUAPAI",
+        "FAN_HUAPAI",
+        "FAN_HUAPAI"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[123m,1][345m,1]567m34sCC5s|EE1110",
+      "expectedNames": [
+        "FAN_YISESANBUGAO",
+        "FAN_MIAOSHOUHUICHUN",
+        "FAN_HUJUEZHANG",
+        "FAN_XIXIANGFENG",
+        "FAN_QUEYIMEN"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[123m,1][345m,1]567m34sCC5s|EE0110",
+      "expectedNames": [
+        "FAN_YISESANBUGAO",
+        "FAN_HAIDILAOYUE",
+        "FAN_HUJUEZHANG",
+        "FAN_XIXIANGFENG",
+        "FAN_QUEYIMEN"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "12345789p55678m6p|EE1000|c",
+      "expectedNames": [
+        "FAN_QINGLONG",
+        "FAN_BUQIUREN",
+        "FAN_PINGHU",
+        "FAN_QUEYIMEN",
+        "FAN_HUAPAI"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[123m,1][345m,1]678p56sWW7s|EE0000|2",
+      "expectedNames": ["FAN_WUFANHU", "FAN_HUAPAI", "FAN_HUAPAI"],
+      "altExpectedNames": null
+    },
+    {
+      "input": "258m23469p14788s3p|EE0000|1",
+      "expectedNames": [
+        "FAN_ZUHELONG",
+        "FAN_MENQIANQING",
+        "FAN_PINGHU",
+        "FAN_HUAPAI"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "14m369p25sESWNPFC|EE1000|h",
+      "expectedNames": ["FAN_QIXINGBUKAO", "FAN_ZIMO", "FAN_HUAPAI"],
+      "altExpectedNames": null
+    },
+    {
+      "input": "EESSWWNNPPFFCC|EE1000|b",
+      "expectedNames": ["FAN_ZIYISE", "FAN_QIDUI", "FAN_ZIMO", "FAN_HUAPAI"],
+      "altExpectedNames": null
+    },
+    {
+      "input": "19m19p119sESWNPFC|EE1000|d",
+      "expectedNames": ["FAN_SHISANYAO", "FAN_ZIMO", "FAN_HUAPAI"],
+      "altExpectedNames": null
+    },
+    {
+      "input": "55s33344455566m5s",
+      "expectedNames": [
+        "FAN_YISESANJIEGAO",
+        "FAN_SANANKE",
+        "FAN_PENGPENGHU",
+        "FAN_MENQIANQING",
+        "FAN_SHUANGTONGKE",
+        "FAN_DUANYAO",
+        "FAN_QUEYIMEN"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "123789s123789p33m",
+      "expectedNames": [
+        "FAN_MENQIANQING",
+        "FAN_PINGHU",
+        "FAN_XIXIANGFENG",
+        "FAN_XIXIANGFENG",
+        "FAN_LAOSHAOFU",
+        "FAN_DANDIAOJIANG"
+      ],
+      "altExpectedNames": [
+        "FAN_MENQIANQING",
+        "FAN_PINGHU",
+        "FAN_XIXIANGFENG",
+        "FAN_LAOSHAOFU",
+        "FAN_LAOSHAOFU",
+        "FAN_DANDIAOJIANG"
+      ]
+    },
+    {
+      "input": "789m456p123s123p33m",
+      "expectedNames": [
+        "FAN_HUALONG",
+        "FAN_MENQIANQING",
+        "FAN_PINGHU",
+        "FAN_XIXIANGFENG",
+        "FAN_DANDIAOJIANG"
+      ],
+      "altExpectedNames": [
+        "FAN_HUALONG",
+        "FAN_MENQIANQING",
+        "FAN_PINGHU",
+        "FAN_LIANLIU",
+        "FAN_DANDIAOJIANG"
+      ]
+    },
+    {
+      "input": "12334556778911s",
+      "expectedNames": [
+        "FAN_YISESIBUGAO",
+        "FAN_QINGYISE",
+        "FAN_MENQIANQING",
+        "FAN_PINGHU"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "12334556723499m",
+      "expectedNames": [
+        "FAN_QINGYISE",
+        "FAN_YISESANBUGAO",
+        "FAN_MENQIANQING",
+        "FAN_PINGHU",
+        "FAN_LIANLIU",
+        "FAN_DANDIAOJIANG"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "11134567889992p",
+      "expectedNames": [
+        "FAN_QINGYISE",
+        "FAN_MENQIANQING",
+        "FAN_SHUANGANKE",
+        "FAN_LIANLIU",
+        "FAN_YAOJIUKE",
+        "FAN_YAOJIUKE"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[789p,1]11123456994p",
+      "expectedNames": ["FAN_QINGYISE", "FAN_LIANLIU", "FAN_YAOJIUKE"],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[1111s][2222m][3333p][4444p]88s",
+      "expectedNames": [
+        "FAN_SIGANG",
+        "FAN_SIANKE",
+        "FAN_SANSESANJIEGAO",
+        "FAN_YAOJIUKE",
+        "FAN_WUZI"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[1111s][2222m][3333p,7][4444p]88s",
+      "expectedNames": [
+        "FAN_SIGANG",
+        "FAN_SANANKE",
+        "FAN_SANSESANJIEGAO",
+        "FAN_YAOJIUKE",
+        "FAN_WUZI"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[1111s][2222m,2][3333p,7][4444p]88s",
+      "expectedNames": [
+        "FAN_SIGANG",
+        "FAN_SHUANGANKE",
+        "FAN_SANSESANJIEGAO",
+        "FAN_YAOJIUKE",
+        "FAN_WUZI"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[1111s,1][2222m,2][3333p,7][4444p]88s",
+      "expectedNames": [
+        "FAN_SIGANG",
+        "FAN_SANSESANJIEGAO",
+        "FAN_YAOJIUKE",
+        "FAN_WUZI"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[1111s][2222m][4444p]333p88s",
+      "expectedNames": [
+        "FAN_SANGANG",
+        "FAN_SIANKE",
+        "FAN_SANSESANJIEGAO",
+        "FAN_YAOJIUKE",
+        "FAN_WUZI",
+        "FAN_DANDIAOJIANG"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[1111s][2222m][4444p][333p,1]88s",
+      "expectedNames": [
+        "FAN_SANGANG",
+        "FAN_SANANKE",
+        "FAN_SANSESANJIEGAO",
+        "FAN_PENGPENGHU",
+        "FAN_YAOJIUKE",
+        "FAN_WUZI",
+        "FAN_DANDIAOJIANG"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[1111s][2222m][4444p,3]333p88s",
+      "expectedNames": [
+        "FAN_SANGANG",
+        "FAN_SANANKE",
+        "FAN_SANSESANJIEGAO",
+        "FAN_PENGPENGHU",
+        "FAN_YAOJIUKE",
+        "FAN_WUZI",
+        "FAN_DANDIAOJIANG"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[1111s][2222m][4444p,3][333p,1]88s",
+      "expectedNames": [
+        "FAN_SANGANG",
+        "FAN_SANSESANJIEGAO",
+        "FAN_PENGPENGHU",
+        "FAN_SHUANGANKE",
+        "FAN_YAOJIUKE",
+        "FAN_WUZI",
+        "FAN_DANDIAOJIANG"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[1111s][2222m,1][4444p,3]333p88s",
+      "expectedNames": [
+        "FAN_SANGANG",
+        "FAN_SANSESANJIEGAO",
+        "FAN_PENGPENGHU",
+        "FAN_SHUANGANKE",
+        "FAN_YAOJIUKE",
+        "FAN_WUZI",
+        "FAN_DANDIAOJIANG"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[1111s][2222m,1][4444p,3][333p,1]88s",
+      "expectedNames": [
+        "FAN_SANGANG",
+        "FAN_SANSESANJIEGAO",
+        "FAN_PENGPENGHU",
+        "FAN_YAOJIUKE",
+        "FAN_WUZI",
+        "FAN_DANDIAOJIANG"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[1111s][2222m]333444p88s",
+      "expectedNames": [
+        "FAN_SIANKE",
+        "FAN_SANSESANJIEGAO",
+        "FAN_SHUANGANGANG",
+        "FAN_YAOJIUKE",
+        "FAN_WUZI",
+        "FAN_DANDIAOJIANG"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[1111s][2222m][333p,1]444p88s",
+      "expectedNames": [
+        "FAN_SANANKE",
+        "FAN_SANSESANJIEGAO",
+        "FAN_PENGPENGHU",
+        "FAN_SHUANGANGANG",
+        "FAN_YAOJIUKE",
+        "FAN_WUZI",
+        "FAN_DANDIAOJIANG"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[1111s][2222m,1]333444p88s",
+      "expectedNames": [
+        "FAN_SANANKE",
+        "FAN_SANSESANJIEGAO",
+        "FAN_PENGPENGHU",
+        "FAN_YAOJIUKE",
+        "FAN_WUZI",
+        "FAN_DANDIAOJIANG",
+        "FAN_MINGANGANG"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[1111s][2222m,1][333p,1]444p88s",
+      "expectedNames": [
+        "FAN_SANSESANJIEGAO",
+        "FAN_PENGPENGHU",
+        "FAN_SHUANGANKE",
+        "FAN_YAOJIUKE",
+        "FAN_WUZI",
+        "FAN_DANDIAOJIANG",
+        "FAN_MINGANGANG"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[1111s,1][2222m,1]333444p88s",
+      "expectedNames": [
+        "FAN_SANSESANJIEGAO",
+        "FAN_PENGPENGHU",
+        "FAN_SHUANGMINGGANG",
+        "FAN_SHUANGANKE",
+        "FAN_YAOJIUKE",
+        "FAN_WUZI",
+        "FAN_DANDIAOJIANG"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[1111s]222m333444p88s",
+      "expectedNames": [
+        "FAN_SIANKE",
+        "FAN_SANSESANJIEGAO",
+        "FAN_ANGANG",
+        "FAN_YAOJIUKE",
+        "FAN_WUZI",
+        "FAN_DANDIAOJIANG"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[1111s][222m,1]333444p88s",
+      "expectedNames": [
+        "FAN_SANANKE",
+        "FAN_SANSESANJIEGAO",
+        "FAN_PENGPENGHU",
+        "FAN_ANGANG",
+        "FAN_YAOJIUKE",
+        "FAN_WUZI",
+        "FAN_DANDIAOJIANG"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[1111s][222m,1][333p,1]444p88s",
+      "expectedNames": [
+        "FAN_SANSESANJIEGAO",
+        "FAN_PENGPENGHU",
+        "FAN_SHUANGANKE",
+        "FAN_ANGANG",
+        "FAN_YAOJIUKE",
+        "FAN_WUZI",
+        "FAN_DANDIAOJIANG"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[1111s,1]222m333444p88s",
+      "expectedNames": [
+        "FAN_SANANKE",
+        "FAN_SANSESANJIEGAO",
+        "FAN_PENGPENGHU",
+        "FAN_MINGGANG",
+        "FAN_YAOJIUKE",
+        "FAN_WUZI",
+        "FAN_DANDIAOJIANG"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[1111s,1][222m,1]333444p88s",
+      "expectedNames": [
+        "FAN_SANSESANJIEGAO",
+        "FAN_PENGPENGHU",
+        "FAN_SHUANGANKE",
+        "FAN_MINGGANG",
+        "FAN_YAOJIUKE",
+        "FAN_WUZI",
+        "FAN_DANDIAOJIANG"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[1111s][2222m][333p,1][444p,1]88s",
+      "expectedNames": [
+        "FAN_SANSESANJIEGAO",
+        "FAN_PENGPENGHU",
+        "FAN_SHUANGANGANG",
+        "FAN_YAOJIUKE",
+        "FAN_WUZI",
+        "FAN_DANDIAOJIANG"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[1111s][222m,1][333p,1][444p,1]88s",
+      "expectedNames": [
+        "FAN_SANSESANJIEGAO",
+        "FAN_PENGPENGHU",
+        "FAN_ANGANG",
+        "FAN_YAOJIUKE",
+        "FAN_WUZI",
+        "FAN_DANDIAOJIANG"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[1111s,1][222m,1][333p,1]444p88s",
+      "expectedNames": [
+        "FAN_SANSESANJIEGAO",
+        "FAN_PENGPENGHU",
+        "FAN_MINGGANG",
+        "FAN_YAOJIUKE",
+        "FAN_WUZI",
+        "FAN_DANDIAOJIANG"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[NNN,3]77789m11888p7m|EE0000|",
+      "expectedNames": [
+        "FAN_SIGUIYI",
+        "FAN_SHUANGANKE",
+        "FAN_YAOJIUKE",
+        "FAN_QUEYIMEN"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[NNN,3]78889m11888p8m|EE0000|",
+      "expectedNames": [
+        "FAN_SIGUIYI",
+        "FAN_SHUANGTONGKE",
+        "FAN_SHUANGANKE",
+        "FAN_YAOJIUKE",
+        "FAN_QUEYIMEN"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "1234444678m456p1m|NE1000|",
+      "expectedNames": [
+        "FAN_BUQIUREN",
+        "FAN_SIGUIYI",
+        "FAN_QUEYIMEN",
+        "FAN_WUZI"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[1111m][222s,1]78999s44p9s",
+      "expectedNames": [
+        "FAN_SIGUIYI",
+        "FAN_SHUANGANKE",
+        "FAN_ANGANG",
+        "FAN_YAOJIUKE",
+        "FAN_YAOJIUKE",
+        "FAN_WUZI"
+      ],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[123p,3]55m12379s789p8s",
+      "expectedNames": ["FAN_SANSESHUANGLONGHUI", "FAN_KANZHANG"],
+      "altExpectedNames": null
+    },
+    {
+      "input": "[678s,3]147m369s25pSS8p",
+      "expectedNames": ["FAN_ZUHELONG"],
+      "altExpectedNames": null
+    }
+  ]
+}
