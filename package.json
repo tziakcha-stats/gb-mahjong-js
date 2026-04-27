@@ -9,7 +9,12 @@
     "url": "https://github.com/Choimoe"
   },
   "files": [
-    "lib"
+    "lib",
+    "native",
+    "build",
+    "third_party/GB-Mahjong/mahjong",
+    "third_party/GB-Mahjong/console",
+    "third_party/GB-Mahjong/LICENSE"
   ],
   "main": "lib/index.js",
   "keywords": [
@@ -62,7 +67,9 @@
   },
   "scripts": {
     "pretest": "eslint .",
-    "test": "jest"
+    "test": "jest",
+    "build:bridge": "node scripts/build-bridge.js",
+    "prepack": "npm run build:bridge"
   },
   "repository": "tziakcha-stats/gb-mahjong-js",
   "jest": {
