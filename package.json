@@ -69,7 +69,7 @@
     "pretest": "eslint .",
     "test": "jest",
     "build:bridge": "node scripts/build-bridge.js",
-    "prepack": "npm run build:bridge"
+    "prepack": "npm test -- --runInBand"
   },
   "repository": "tziakcha-stats/gb-mahjong-js",
   "jest": {
