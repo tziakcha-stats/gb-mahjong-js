@@ -71,7 +71,10 @@
     "build:bridge": "node scripts/build-bridge.js",
     "prepack": "npm test -- --runInBand"
   },
-  "repository": "tziakcha-stats/gb-mahjong-js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tziakcha-stats/gb-mahjong-js.git"
+  },
   "jest": {
     "testEnvironment": "node"
   },
