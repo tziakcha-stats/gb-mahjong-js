@@ -20,9 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       tag_name: ${{ steps.meta.outputs.tag_name }}
-      package_version: ${{ steps.meta.outputs.package_version }}
       release_name: ${{ steps.meta.outputs.release_name }}
-      is_prerelease: "false"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -44,7 +42,6 @@ jobs:
           fi
 
           echo "tag_name=${TAG_NAME}" >> "${GITHUB_OUTPUT}"
-          echo "package_version=${PACKAGE_VERSION}" >> "${GITHUB_OUTPUT}"
           echo "release_name=${TAG_NAME}" >> "${GITHUB_OUTPUT}"
 
   changelog:
@@ -66,9 +63,7 @@ jobs:
         with:
           config: .github/cliff.toml
           github_token: ${{ github.token }}
-          args: >-
-            -vv --latest --strip header
-            ${{ needs.meta.outputs.is_prerelease == 'false' && '--tag-pattern "^v[0-9]+\\.[0-9]+\\.[0-9]+$"' || '' }}
+          args: -vv --latest --strip header --tag-pattern "^v[0-9]+\\.[0-9]+\\.[0-9]+$"
         env:
           OUTPUT: CHANGES.md
           GITHUB_REPO: ${{ github.repository }}
@@ -88,7 +83,6 @@ jobs:
         with:
           node-version: 24
           cache: npm
-          registry-url: https://registry.npmjs.org
 
       - name: Install dependencies
         run: npm ci
