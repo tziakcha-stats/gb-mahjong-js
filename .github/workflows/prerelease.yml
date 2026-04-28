@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: read
 
 concurrency:
   group: prerelease-${{ github.ref_name || 'main' }}
@@ -81,6 +82,7 @@ jobs:
         id: git-cliff
         with:
           config: .github/cliff.toml
+          github_token: ${{ github.token }}
           args: >-
             -vv --latest --strip header
             ${{ needs.meta.outputs.is_prerelease == 'false' && '--tag-pattern "^v[0-9]+\\.[0-9]+\\.[0-9]+$"' || '' }}
