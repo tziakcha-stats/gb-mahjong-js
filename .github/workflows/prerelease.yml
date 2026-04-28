@@ -1,0 +1,138 @@
+name: Prerelease
+
+on:
+  schedule:
+    - cron: "0 20 * * 0"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: prerelease-${{ github.ref_name || 'main' }}
+  cancel-in-progress: false
+
+jobs:
+  meta:
+    runs-on: ubuntu-latest
+    outputs:
+      should_release: ${{ steps.meta.outputs.should_release }}
+      tag_name: ${{ steps.meta.outputs.tag_name }}
+      package_version: ${{ steps.meta.outputs.package_version }}
+      release_name: ${{ steps.meta.outputs.release_name }}
+      is_prerelease: "true"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fetch tags
+        run: git fetch --force --tags origin
+
+      - name: Derive prerelease metadata
+        id: meta
+        shell: bash
+        run: |
+          set -euo pipefail
+          PACKAGE_VERSION="$(node -p "require('./package.json').version")"
+          DATE_STAMP="$(TZ=Asia/Shanghai date +%Y%m%d)"
+          TAG_NAME="v${PACKAGE_VERSION}-pre.${DATE_STAMP}"
+          RELEASE_NAME="${TAG_NAME}"
+
+          LAST_TAG="$(git describe --tags --abbrev=0 2>/dev/null || true)"
+          if [[ -n "${LAST_TAG}" ]]; then
+            COMMITS_SINCE_LAST_TAG="$(git rev-list "${LAST_TAG}"..HEAD --count)"
+            if [[ "${COMMITS_SINCE_LAST_TAG}" == "0" ]]; then
+              echo "No commits since ${LAST_TAG}; skipping prerelease."
+              echo "should_release=false" >> "${GITHUB_OUTPUT}"
+              exit 0
+            fi
+          fi
+
+          if git rev-parse "${TAG_NAME}" >/dev/null 2>&1; then
+            echo "Tag ${TAG_NAME} already exists; skipping prerelease."
+            echo "should_release=false" >> "${GITHUB_OUTPUT}"
+            exit 0
+          fi
+
+          echo "should_release=true" >> "${GITHUB_OUTPUT}"
+          echo "tag_name=${TAG_NAME}" >> "${GITHUB_OUTPUT}"
+          echo "package_version=${PACKAGE_VERSION}" >> "${GITHUB_OUTPUT}"
+          echo "release_name=${RELEASE_NAME}" >> "${GITHUB_OUTPUT}"
+
+  changelog:
+    name: Generate changelog
+    needs: meta
+    if: needs.meta.outputs.should_release == 'true'
+    runs-on: ubuntu-latest
+    outputs:
+      release_body: ${{ steps.git-cliff.outputs.content }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate a changelog
+        uses: orhun/git-cliff-action@v4
+        id: git-cliff
+        with:
+          config: .github/cliff.toml
+          args: >-
+            -vv --latest --strip header
+            ${{ needs.meta.outputs.is_prerelease == 'false' && '--tag-pattern "^v[0-9]+\\.[0-9]+\\.[0-9]+$"' || '' }}
+        env:
+          OUTPUT: CHANGES.md
+          GITHUB_REPO: ${{ github.repository }}
+
+  prerelease:
+    needs: [meta, changelog]
+    if: needs.meta.outputs.should_release == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test -- --runInBand
+
+      - name: Create package tarball
+        id: pack
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm pack --json > pack-output.json
+          TARBALL="$(node -p "require('./pack-output.json')[0].filename")"
+          echo "tarball=${TARBALL}" >> "${GITHUB_OUTPUT}"
+
+      - name: Create and push prerelease tag
+        env:
+          TAG_NAME: ${{ needs.meta.outputs.tag_name }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag -a "${TAG_NAME}" -m "Prerelease ${TAG_NAME}"
+          git push origin "${TAG_NAME}"
+
+      - name: Create GitHub prerelease
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ needs.meta.outputs.tag_name }}
+          name: ${{ needs.meta.outputs.release_name }}
+          body: ${{ needs.changelog.outputs.release_body }}
+          files: ${{ steps.pack.outputs.tarball }}
+          prerelease: true
