@@ -10,6 +10,8 @@ npm install --save gb-mahjong-js
 
 ## Usage
 
+### 算番示例
+
 ```js
 const { Fan, Handtiles } = require("gb-mahjong-js");
 
@@ -24,6 +26,31 @@ console.log(fan.tot_fan_res);
 console.log(fan.CalcTing(handtiles).map(tile => tile.GetId()));
 ```
 
+### 向听数计算示例
+
+```js
+const { Handtiles, Shanten } = require("gb-mahjong-js");
+
+const handtiles = new Handtiles();
+handtiles.StringToHandtiles("23468m25s3888899p ");
+
+console.log("手牌:", handtiles.HandtilesToString());
+
+const result = Shanten.calcAll(handtiles);
+
+console.log("向听数:");
+console.log("  一般型:", result.normal);
+console.log("  七对子:", result.qidui);
+console.log("  十三幺:", result.shisanyao);
+console.log("  全不靠:", result.quanbukao);
+console.log("  组合龙:", result.zuhelong);
+
+console.log("进张信息:");
+if (result.waits.length > 0) {
+  console.log("  最优进张:", result.waits[0]);
+}
+```
+
 ## API
 
 - `Handtiles`
@@ -35,6 +62,20 @@ console.log(fan.CalcTing(handtiles).map(tile => tile.GetId()));
   - `JudgeHuTile(handtiles, tile)`：判断补上某张牌后是否和牌。
   - `CalcTing(handtiles)`：计算听牌。
   - `CountFan(handtiles)`：计算番种，并把结果写入 `tot_fan_res` 与 `fan_table_res`。
+- `Shanten`
+  - `calcAll(handtiles, opt)`：计算所有牌型的向听数，返回 `{ normal, qidui, shisanyao, quanbukao, zuhelong, waits, details }`。
+    - `opt.modes`：可选，指定计算的牌型，如 `["normal", "qidui"]`。
+    - `opt.remain`：可选，指定剩余牌数数组。
+  - 返回值：
+    - `normal`：一般型向听数。
+    - `qidui`：七对子向听数。
+    - `shisanyao`：十三幺向听数。
+    - `quanbukao`：全不靠向听数。
+    - `zuhelong`：组合龙向听数。
+    - `waits`：进张信息数组。
+    - `details`：各牌型详细信息。
+
+详细API文档请参考 [docs/shanten-api.md](docs/shanten-api.md)。
 
 ## Notes
 
