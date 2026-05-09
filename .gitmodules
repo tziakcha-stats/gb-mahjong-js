@@ -1,6 +1,3 @@
 [submodule "third_party/GB-Mahjong"]
 	path = third_party/GB-Mahjong
 	url = https://github.com/zheng-fan/GB-Mahjong.git
-[submodule "third_party/GB-Mahjong-JS"]
-	path = third_party/GB-Mahjong-JS
-	url = git@github.com:Choimoe/GB-Mahjong-JS.git
