@@ -1,6 +1,6 @@
 {
   "name": "gb-mahjong-js",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "gb-mahjong-js是一个国标麻将的js库，实现了麻将中的一些基本类型的封装，提供了算番、计算听牌等多种实用工具。",
   "homepage": "https://github.com/tziakcha-stats/gb-mahjong-js",
   "author": {
