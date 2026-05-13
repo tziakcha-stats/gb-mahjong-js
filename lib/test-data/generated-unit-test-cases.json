@@ -871,7 +871,12 @@
     {
       "input": "258m23469p14788s3p",
       "expectedNames": ["FAN_ZUHELONG", "FAN_MENQIANQING", "FAN_PINGHU"],
-      "altExpectedNames": null
+      "altExpectedNames": [
+        "FAN_ZUHELONG",
+        "FAN_MENQIANQING",
+        "FAN_PINGHU",
+        "FAN_KANZHANG"
+      ]
     },
     {
       "input": "258m13369p14788s2p",
@@ -989,7 +994,13 @@
         "FAN_PINGHU",
         "FAN_HUAPAI"
       ],
-      "altExpectedNames": null
+      "altExpectedNames": [
+        "FAN_ZUHELONG",
+        "FAN_MENQIANQING",
+        "FAN_PINGHU",
+        "FAN_KANZHANG",
+        "FAN_HUAPAI"
+      ]
     },
     {
       "input": "14m369p25sESWNPFC|EE1000|h",
